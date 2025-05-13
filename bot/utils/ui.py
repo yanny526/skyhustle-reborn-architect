@@ -21,3 +21,14 @@ def create_main_menu() -> InlineKeyboardMarkup:
 def section_header(title: str) -> str:
     """Create a formatted section header"""
     return f"━━━━ {title} ━━━━"
+
+def format_resource_amount(amount: int) -> str:
+    """Format resource amounts with K, M, B suffixes"""
+    if amount < 1000:
+        return str(amount)
+    elif amount < 1000000:
+        return f"{amount/1000:.1f}K"
+    elif amount < 1000000000:
+        return f"{amount/1000000:.1f}M"
+    else:
+        return f"{amount/1000000000:.1f}B"
